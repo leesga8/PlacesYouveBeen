@@ -15,7 +15,7 @@ namespace PlacesBeen.Controllers
     }
 
     [HttpGet("/places/new")]
-    public ActionResult CreateForm()
+    public ActionResult New()
     {
       return View();
     }
@@ -32,7 +32,12 @@ namespace PlacesBeen.Controllers
     {
       Place.ClearAll();
       return View();
-
+    }
+    [HttpGet("/places/{id}")]
+    public ActionResult Show(int id)
+    {
+      Place foundPlace = Place.Find(id);
+      return View(foundPlace);
     }
   }
 }
