@@ -6,13 +6,12 @@ using System;
 namespace PlacesBeen.Tests
 {
   [TestClass]
-  public class PlaceTests /*: IDisposable*/
+  public class PlaceTests : IDisposable
   {
-
-    // public void Dispose()
-    // {
-    //   Place.ClearAll();
-    // }
+    public void Dispose()
+    {
+      Place.ClearAll();
+    }
 
     [TestMethod]
     public void PlaceConstructor_CreatesInstanceOfPlace_Place()
@@ -48,5 +47,35 @@ namespace PlacesBeen.Tests
       //Assert
       Assert.AreEqual(updatedCityName, result);
     }
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_PlaceList()
+    {
+      // Arrange
+      List<Place> newList = new List<Place> { };
+
+      // Act
+      List<Place> result = Place.GetAll();
+
+      // Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+    [TestMethod]
+    public void GetAll_ReturnsPlaces_PlaceList()
+    {
+      //Arrange
+      string city1 = "Seattle";
+      string city2 = "Tacoma";
+      Place newPlace1 = new Place(city1);
+      Place newPlace2 = new Place(city2);
+      List<Place> newList = new List<Place> { newPlace1, newPlace2 };
+
+      //Act
+      List<Place> result = Place.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+
   }
 }
