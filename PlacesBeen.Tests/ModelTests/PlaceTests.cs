@@ -17,8 +17,21 @@ namespace PlacesBeen.Tests
     [TestMethod]
     public void PlaceConstructor_CreatesInstanceOfPlace_Place()
     {
-      Place newPlace = new Place();
+      Place newPlace = new Place("test");
       Assert.AreEqual(typeof(Place), newPlace.GetType());
+    }
+    [TestMethod]
+    public void GetCityName_ReturnsCityName_String()
+    {
+      //Arrange
+      string cityName = "Seattle";
+
+      //Act
+      Place newPlace = new Place(cityName);
+      string result = newPlace.Cityname;
+
+      //Assert
+      Assert.AreEqual(cityName, result);
     }
   }
 }
