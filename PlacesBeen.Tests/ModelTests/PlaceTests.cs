@@ -90,5 +90,20 @@ namespace PlacesBeen.Tests
       Assert.AreEqual(1, result);
     }
 
+    [TestMethod]
+    public void Find_ReturnsCorrectItem_Item()
+    {
+      //Arrange
+      string city1 = "Seattle";
+      string city2 = "Portland";
+      Place newCity1 = new Place(city1);
+      Place newCity2 = new Place(city2);
+
+      //Act
+      Place result = Place.Find(2);
+
+      //Assert
+      Assert.AreEqual(newCity2, result);
+    }
   }
 }
