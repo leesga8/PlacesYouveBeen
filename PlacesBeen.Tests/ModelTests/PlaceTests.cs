@@ -16,7 +16,7 @@ namespace PlacesBeen.Tests
     [TestMethod]
     public void PlaceConstructor_CreatesInstanceOfPlace_Place()
     {
-      Place newPlace = new Place("test");
+      Place newPlace = new Place("test", "friend", 2, "hi");
       Assert.AreEqual(typeof(Place), newPlace.GetType());
     }
     [TestMethod]
@@ -26,7 +26,7 @@ namespace PlacesBeen.Tests
       string cityName = "Seattle";
 
       //Act
-      Place newPlace = new Place(cityName);
+      Place newPlace = new Place(cityName, "friend", 2, "hi");
       string result = newPlace.Cityname;
 
       //Assert
@@ -37,7 +37,7 @@ namespace PlacesBeen.Tests
     {
       //Arrange
       string cityname = "Seattle";
-      Place newPlace = new Place(cityname);
+      Place newPlace = new Place(cityname, "friend", 2, "hi");
 
       //Act
       string updatedCityName = "Tacoma";
@@ -65,8 +65,8 @@ namespace PlacesBeen.Tests
       //Arrange
       string city1 = "Seattle";
       string city2 = "Tacoma";
-      Place newPlace1 = new Place(city1);
-      Place newPlace2 = new Place(city2);
+      Place newPlace1 = new Place(city1,  "friend", 2, "hi");
+      Place newPlace2 = new Place(city2, "friend", 2, "hi");
       List<Place> newList = new List<Place> { newPlace1, newPlace2 };
 
       //Act
@@ -81,7 +81,7 @@ namespace PlacesBeen.Tests
     {
       //Arrange
       string city = "Seattle";
-      Place newPlace = new Place(city);
+      Place newPlace = new Place(city, "friend", 2, "hi");
 
       //Act
       int result = newPlace.Id;
@@ -96,8 +96,8 @@ namespace PlacesBeen.Tests
       //Arrange
       string city1 = "Seattle";
       string city2 = "Portland";
-      Place newCity1 = new Place(city1);
-      Place newCity2 = new Place(city2);
+      Place newCity1 = new Place(city1, "friend", 2, "hi");
+      Place newCity2 = new Place(city2, "friend", 2, "hi");
 
       //Act
       Place result = Place.Find(2);
