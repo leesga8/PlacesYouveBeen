@@ -76,6 +76,19 @@ namespace PlacesBeen.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
+    [TestMethod]
+    public void GetId_PlacesInstantiateWithAnIdAndGetterReturns_String()
+    {
+      //Arrange
+      string city = "Seattle";
+      Place newPlace = new Place(city);
+
+      //Act
+      int result = newPlace.Id;
+
+      //Assert
+      Assert.AreEqual(1, result);
+    }
 
   }
 }
