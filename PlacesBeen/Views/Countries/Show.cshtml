@@ -1,0 +1,17 @@
+
+@using PlacesBeen.Models;
+
+<h3>Here are all the places in this country:</h3>
+<ol>
+@foreach (Place place in @Model["places"])
+{
+  <li><a href='/countries/@Model["country"].Id/places/@place.Id'>@place.Cityname</a></li>
+  @* <li><a href='/countries/@Model["country"].Id/places/@place.Id'>@place.Friend</a></li>
+  <li><a href='/countries/@Model["country"].Id/places/@place.Id'>@place.Duration</a></li>
+  <li><a href='/countries/@Model["country"].Id/places/@place.Id'>@place.Journal</a></li> *@
+}
+</ol>
+
+<p><a href='/countries/@Model["country"].Id/places/new'>Add a new place</a></p>
+<p><a href='/countries'>Return to country list</a></p>
+<p><a href='/'>Return to Main Page</a></p>

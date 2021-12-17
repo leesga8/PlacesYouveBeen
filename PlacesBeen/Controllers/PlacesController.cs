@@ -6,38 +6,29 @@ namespace PlacesBeen.Controllers
 {
   public class PlacesController : Controller
   {
-
-    [HttpGet("/places")]
-    public ActionResult Index()
+    [HttpGet("/countries/{countryId}/places/new")]
+    public ActionResult New(int countryId)
     {
-      List<Place> allPlaces = Place.GetAll();
-      return View(allPlaces);
+      Country country = Country.Find(countryId);
+      return View(country);
     }
-
-    [HttpGet("/places/new")]
-    public ActionResult New()
-    {
-      return View();
-    }
-
-    [HttpPost("/places")]
-    public ActionResult Create(string cityname, string friend, int duration, string journal)
-    {
-      Place myPlace = new Place(cityname, friend, duration, journal);
-      return RedirectToAction("Index");
-    }
-
     [HttpPost("/places/delete")]
     public ActionResult DeleteAll()
     {
       Place.ClearAll();
       return View();
     }
-    [HttpGet("/places/{id}")]
-    public ActionResult Show(int id)
+    [HttpGet("/countries/{countryId}/places/{placeId}")]
+    public ActionResult Show(int countryId, int placeId)
     {
-      Place foundPlace = Place.Find(id);
-      return View(foundPlace);
+      Place place = Place.Find(placeId);
+      Country country = Country.Find(countryId);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      model.Add("place", place);
+      model.Add("country", country);
+      return View(model);
     }
+
+
   }
 }

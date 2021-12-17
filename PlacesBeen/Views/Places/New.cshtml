@@ -1,4 +1,9 @@
-<form action="/places" method="post">
+<h1>Add a new place to @Model.Name</h1>
+
+<form action="/countries/@Model.Id/places" method="post">
+
+  <input id="countryId" name="countryId" type="hidden" value="@Model.Id">
+
   <label for="cityname">Add a new City</label>
   <input id="cityname" name="cityname" type="text">
 
