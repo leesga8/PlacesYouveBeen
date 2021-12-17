@@ -28,6 +28,10 @@ namespace PlacesBeen.Models
     {
       return _instances[searchId - 1];
     }
+    public void AddPlace(Place place)
+    {
+      Places.Add(place);
+    }
 
   }
 }

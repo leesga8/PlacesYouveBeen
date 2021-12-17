@@ -75,5 +75,26 @@ namespace PlacesBeen.Tests
       //Assert
       Assert.AreEqual(newCountry2, result);
     }
+
+    [TestMethod]
+    public void AddPlace_AssociatesPlaceWithCountry_PlaceList()
+    {
+      //Arrange
+      string cityname = "seattle";
+      string friend = "jack";
+      int duration = 4;
+      string journal ="journal";
+      Place newPlace = new Place(cityname, friend, duration, journal);
+      List<Place> newList = new List<Place> { newPlace };
+      string name = "USA";
+      Country newCountry = new Country(name);
+      newCountry.AddPlace(newPlace);
+
+      //Act
+      List<Place> result = newCountry.Places;
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
